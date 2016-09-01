@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="edit_message">编辑一条信息</string>
+    <string name="button_send">输入-发送</string>
+</resources>
