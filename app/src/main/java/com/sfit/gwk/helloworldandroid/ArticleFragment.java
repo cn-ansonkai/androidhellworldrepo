@@ -21,9 +21,6 @@ public class ArticleFragment extends Fragment {
     public final static String ARG_POSITION_KEY = "com.sfit.gwk.POSITION";
     protected int mCurrentSelectedPosition = -1;
 
-    public ArticleFragment() {
-        // Required empty public constructor
-    }
 
     /**
      * Use this factory method to create a new instance of
