@@ -1,18 +1,20 @@
 package com.sfit.gwk.helloworldandroid;
 
-import android.app.Activity;
+
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 
 public class HeadlinesFragment extends ListFragment {
     OnHeadlineSelectedListener mSelectedCallback;
 
     public interface OnHeadlineSelectedListener {
-        public void onArticleSelected(int pos);
+        void onArticleSelected(int pos);
     }
 
     @Override
@@ -36,7 +38,25 @@ public class HeadlinesFragment extends ListFragment {
 
     @Override
     public void onAttach(Context activity) {
-        super.onAttach(activity)
+        super.onAttach(activity);
+
+        // This makes sure that the container activity has implemented
+        // the callback interface. If not, it throws an exception.
+        try {
+            mSelectedCallback = (OnHeadlineSelectedListener) activity;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(activity.toString()
+                    + " must implement OnHeadlineSelectedListener");
+        }
+    }
+
+    @Override
+    public void onListItemClick(ListView l, View v, int pos, long id) {
+        // Notify the parent activity of selected item
+        mSelectedCallback.onArticleSelected(pos);
+
+        // Set the item as checked to be highlighted when in two-pane layout
+        // getListView().setItemChecked(pos, true);
     }
 }
 

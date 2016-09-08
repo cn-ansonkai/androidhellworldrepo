@@ -18,8 +18,8 @@ import android.widget.TextView;
  */
 public class ArticleFragment extends Fragment {
 
-    final static String ARG_POSITION_KEY = "com.sfit.gwk.POSITION";
-    int mCurrentSelectedPosition = -1;
+    public final static String ARG_POSITION_KEY = "com.sfit.gwk.POSITION";
+    protected int mCurrentSelectedPosition = -1;
 
     public ArticleFragment() {
         // Required empty public constructor
